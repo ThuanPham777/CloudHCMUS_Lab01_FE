@@ -5,8 +5,8 @@ const editFormContainer = document.getElementById("editFormContainer");
 let currentTaskId = null;
 
 const config = {
-  ENVIRONMENT_PATH_DEV: "http://localhost:5000",
-  ENVIRONMENT_PATH_PROD: "https://taskapp.khacthienit.click"
+  ENVIRONMENT_PATH_DEV: "https://backend-dev.khacthienit.click",
+  ENVIRONMENT_PATH_PROD: "https://backend-staigng.khacthienit.click"
 };
 
 // Fetch all tasks on page load
