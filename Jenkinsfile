@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('docker-cred')  // Jenkins credential ID cho DockerHub
-        DOCKERHUB_USER = "thuampham777"  // Thay bằng DockerHub username
+        DOCKERHUB_USER = "thuanpham777"  // Thay bằng DockerHub username
         IMAGE_NAME = "cloudhcmus_lab01_fe"          // Tên image
         GIT_REPO = "https://github.com/ThuanPham777/CloudHCMUS_Lab01_FE.git"
     }
