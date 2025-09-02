@@ -54,9 +54,13 @@ pipeline {
                         sh """
                         ssh -o StrictHostKeyChecking=no ubuntu@3.84.173.214 '
                             set -e
-                            docker pull thuanpham777/cloudhcmus_lab01_fe:latest
-                            # restart systemd service so ExecStart runs the new image
+                            echo "Pulling latest image from DockerHub..."
+                            docker pull ${DOCKERHUB_USER}/${IMAGE_NAME}:latest
+
+                            echo "Restarting service..."
+                            sudo systemctl daemon-reload
                             sudo systemctl restart cloudhcmus.service
+                            sudo systemctl status cloudhcmus.service --no-pager
                         '
                         """
                     }
