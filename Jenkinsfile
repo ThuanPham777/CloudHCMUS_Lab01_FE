@@ -46,5 +46,23 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy to app-lab02-ec2') {
+            steps {
+                sshagent (credentials: ['ssh-app-lab02-ec2-depoly']) {
+                    script {
+                        sh """
+                        ssh -o StrictHostKeyChecking=no ubuntu@3.84.173.214 '
+                            set -e
+                            docker pull thuanpham777/cloudhcmus_lab01_fe:latest
+                            # restart systemd service so ExecStart runs the new image
+                            sudo systemctl restart cloudhcmus.service
+                        '
+                        """
+                    }
+                }
+            }
+        }
+
     }
 }
